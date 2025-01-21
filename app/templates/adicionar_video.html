@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Vídeo</title>
+</head>
+<body>
+    <h1>Adicionar Novo Vídeo</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="/adicionar_videos" method="POST">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" required><br><br>
+    
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required><br><br>
+    
+        <label for="file_path">Caminho do Arquivo:</label>
+        <input type="text" id="file_path" name="file_path"><br><br>
+    
+        <label for="duration_s">Duração (em segundos):</label>
+        <input type="number" id="duration_s" name="duration_s"><br><br>
+    
+        <label for="views">Visualizações:</label>
+        <input type="number" id="views" name="views"><br><br>
+    
+        <label for="upload_date">Data de Upload:</label>
+        <input type="date" id="upload_date" name="upload_date"><br><br>
+    
+        <label for="thumbnail_url">URL do Thumbnail:</label>
+        <input type="text" id="thumbnail_url" name="thumbnail_url"><br><br>
+    
+        <label for="uploader">Uploader:</label>
+        <input type="text" id="uploader" name="uploader"><br><br>
+    
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="pending">Pendente</option>
+            <option value="approved">Aprovado</option>
+            <option value="rejected">Rejeitado</option>
+        </select><br><br>
+    
+        <button type="submit">Adicionar Vídeo</button>
+    </form>
+</body>
+</html>
