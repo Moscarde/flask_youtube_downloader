@@ -21,32 +21,15 @@
                     <input type="url" name="video_url" class="form-control" placeholder="Insira a URL do vídeo" required />
                     <button type="submit" class="btn btn-primary">Baixar</button>
                 </div>
+                <p class="mt-3 text-muted text-center">O local de saída padrão é <code>./downloads</code>.</p>
+
                 <div id="loading-spinner" class="text-center mt-3">
                     <div class="spinner-border text-primary" role="status">
                         <span class="visually-hidden">Carregando...</span>
                     </div>
                 </div>
             </form>
-            <div id="video-table-container">
-                <h2>Lista de Vídeos</h2>
-                <table class="table table-striped text-center align-middle">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Capa</th>
-                            <th scope="col">Título / Canal</th>
-                            <th scope="col">Detalhes</th>
-                            <th scope="col">URL</th>
-                            <th scope="col">Download</th>
-                            <th scope="col">Status no Servidor</th>
-                        </tr>
-                    </thead>
-                    <tbody id="video-table-body">
-                        <!-- JS -->
-                    </tbody>
-                </table>
-                
-            </div>
+            <div id="video-queue" class="mt-4"></div>
         </div>
     
         <!-- Scripts -->

@@ -25,9 +25,6 @@ h1 {
 }
 
 h1.custom-underline {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
     position: relative;
 }
 
@@ -35,32 +32,24 @@ h1.custom-underline::after {
     content: "";
     position: absolute;
     bottom: 0;
-    /* Faz o sublinhado ficar logo abaixo do texto */
     left: 0;
     width: 100%;
-    /* O sublinhado tem o mesmo comprimento do texto */
     height: 5px;
-    /* Espessura do sublinhado */
     background-color: #ff0000;
-    border-radius: 5px; 
-    /* Cor do sublinhado */
+    border-radius: 5px;
 }
 
 .rgb-animate {
-    animation-iteration-count: infinite;
-    animation-duration: 20s;
-    animation-name: rgb_anim;
+    animation: rgb_anim 20s infinite;
 }
 
 @keyframes rgb_anim {
     from {
         filter: hue-rotate(0deg);
     }
-
     50% {
         filter: hue-rotate(360deg);
     }
-
     to {
         filter: hue-rotate(0deg);
     }
@@ -81,60 +70,47 @@ form {
     height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: height 0.5s ease, opacity 0.5s ease;
+    transition: height 0.5s ease, opacity 0.5s ease, visibility 0s linear 0.5s;
 }
 
 #loading-spinner.show {
     visibility: visible;
     height: 60px;
     opacity: 1;
+    transition: height 0.5s ease, opacity 0.5s ease, visibility 0s linear 0s;
 }
 
-/* Estilo do container da tabela */
-#video-table-container {
-    display: none;
-    opacity: 0;
-    width: 100%;
-    margin-top: 2rem;
-    transition: opacity 0.5s ease-in-out;
+.video-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-#video-table-container.show {
-    display: block;
-    opacity: 1;
-}
-
-#video-table-body tr {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    vertical-align: middle;
-}
-
-#video-table-body tr.show {
-    opacity: 1;
-}
-
-#video-table-body tr.processing {
-    background-color: #f8d7da;
-    color: #721c24;
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-#video-table-body tr.processing.fade {
-    opacity: 0;
-}
-
-#video-table-body td,
-#video-table-body th {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.img-thumb {
-    height: 80px;
+.video-card img {
+    height: 100px;
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
+    border-radius: 4px;
+    margin-right: 15px;
+}
 
+.video-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: #007bff;
+    transition: width 0.1s linear;
 }
